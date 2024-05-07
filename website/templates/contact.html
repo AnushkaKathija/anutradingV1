@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+    body {
+        background-color: #F8F8F8; 
+    }
+
+    .page__title-area {
+        position: relative;
+        text-align: center;
+        padding: 150px 0 50px; 
+    }
+
+    .page__title-overlay {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .page__title {
+        margin-bottom: 5px;
+        color: #333; 
+    }
+
+    .form-container {
+        margin-bottom: 30px; 
+        background-color: #F8F8F8; 
+        padding: 20px; 
+    }
+</style>
+
+<section class="page__title-area p-relative page__title-overlay" style="background-image: url('/static/cBanner.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="page__title-wrapper">
+                    <h3 class="page__title" style="color: #FFFFFF">Contact Us</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container form-container">
+    <form method="POST" action="/contact">
+        {% csrf_token %}
+        <div class="mb-3 mt-4">
+            <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name">      
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="personName" name="personName" placeholder="Contact Person Name*">      
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email*">
+        </div>
+        <div class="mb-3">
+            <input type="phone" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Telephone No/ Phone Number*">      
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Message"></textarea>      
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock body %}
